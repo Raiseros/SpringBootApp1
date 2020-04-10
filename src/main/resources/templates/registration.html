@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Save Student</title>
+
+</head>
+
+
+<body>
+
+
+
+<form action="#"   th:action="@{/saveStudent}"
+                   th:object="${student}" method="POST">
+    <table>
+        <tr>
+            <td><input type="hidden" th:field="*{id}" /></td>
+        </tr>
+        <tr>
+            <td align="right">First name :</td>
+            <td><input type="text" th:field="*{firstName}" placeholder="First name"></td>
+        </tr>
+        <tr>
+            <td align="right">Last name :</td>
+            <td><input type="text" th:field="*{lastName}" placeholder="Last name"></td>
+        </tr>
+        <tr>
+            <td align="right">Age :</td>
+            <td><input type="text" th:field="*{age}" placeholder="Age"></td>
+        </tr>
+        <tr>
+            <td align="right">Password :</td>
+            <td><input type="text" th:field="*{password}" placeholder="Password"></td>
+        </tr>
+
+        <tr>
+            <p></p>
+            <td align="right"><input type="submit" value="Save" /> </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+
+</html>

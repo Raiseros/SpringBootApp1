@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+
+<body>
+
+<h3>Student Directory</h3>
+<hr>
+<form action="#" th:action="@{/registration}">
+<input type="submit" value="Registration">
+</form>
+<p></p>
+<table border="1">
+  <thead>
+      <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+
+    <tbody>
+       <tr th:each="tempStudent : ${students}" >
+           <td th:text="${tempStudent.firstName}" />
+           <td th:text="${tempStudent.lastName}" />
+           <td th:text="${tempStudent.age}" />
+
+           <td>
+                <a th:href="@{/formForUpdate(studentId=${tempStudent.id})}">
+               <button>Update</button></a>&nbsp;
+               <a th:href="@{/delete(studentId=${tempStudent.id})}">
+                   <button>Delete</button></a>
+           </td>
+       </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+
+
+</html>

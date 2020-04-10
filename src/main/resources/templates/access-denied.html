@@ -1,0 +1,28 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+
+<head>
+    <title>Access Denied</title>
+</head>
+<body>
+        <h2>Access Denied - You are not authorized to access this resource.
+            <br><br>
+            Only users with role ADMIN have administrator access.
+        </h2>
+         <hr>
+        <p>
+            User: <span sec:authentication="principal.username"></span>
+            <br><br>
+
+            Role: <span sec:authentication="principal.authorities"></span>
+
+        </p>
+
+        <hr>
+        <a th:href="@{/}">Back to Home Page</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+
+<head>
+    <title>Access Accepted</title>
+</head>
+<body>
+
+<div sec:authorize="hasRole('ADMIN')">
+<h2>Access Accepted - Congratulations you have logged with Administrator access.</h2>
+</div>
+<div sec:authorize="hasRole('STUDENT')">
+    <h2>You have logged with Student access.</h2>
+</div>
+
+<hr>
+<p>
+    User: <span sec:authentication="principal.username"></span>
+    <br><br>
+
+    Role: <span sec:authentication="principal.authorities"></span>
+
+</p>
+
+<hr>
+<a th:href="@{/}">Back to Home Page</a>
+</body>
+</html>
