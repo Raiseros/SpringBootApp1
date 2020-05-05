@@ -1,42 +1,50 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-
+<head>
+    <meta charset="UTF-8"/>
+    <link th:href="@{/style.css}" type="text/css" rel="stylesheet"/>
+</head>
 
 <body>
 
 <h3>Student Directory</h3>
 <hr>
+<div>
 <form action="#" th:action="@{/registration}">
-<input type="submit" value="Registration">
+<input type="submit" value="New student">
 </form>
+</div>
 <p></p>
-<table border="1">
-  <thead>
+
+<table border="1" class="features-table">
+
+  <thead class="lines">
       <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Age</th>
-          <th>Action</th>
+          <td nowrap>First Name</td>
+          <td class="grey">Last Name</td>
+          <td class="grey">Age</td>
+          <td class="green">Action</td>
       </tr>
   </thead>
 
     <tbody>
        <tr th:each="tempStudent : ${students}" >
-           <td th:text="${tempStudent.firstName}" />
-           <td th:text="${tempStudent.lastName}" />
-           <td th:text="${tempStudent.age}" />
+           <td class="white student" th:text="${tempStudent.firstName}"/>
+           <td class="grey student" th:text="${tempStudent.lastName}"/>
+           <td class="grey student" th:text="${tempStudent.age}"/>
 
-           <td>
-                <a th:href="@{/formForUpdate(studentId=${tempStudent.id})}">
-               <button>Update</button></a>&nbsp;
-               <a th:href="@{/delete(studentId=${tempStudent.id})}">
+           <td class="green student">
+                <a id="update" th:href="@{/formForUpdate(studentId=${tempStudent.id})}">
+               <button>Update</button></a>
+               <a id="delete" th:href="@{/delete(studentId=${tempStudent.id})}">
                    <button>Delete</button></a>
            </td>
+
        </tr>
     </tbody>
-
 </table>
+
 
 
 </body>
