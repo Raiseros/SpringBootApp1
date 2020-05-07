@@ -3,7 +3,11 @@
 
 <head>
 
+    <meta charset="UTF-8"/>
     <title>Save Student</title>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+    <link th:href="@{/form.css}" type="text/css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/0a82a71546.js"></script>
 
 </head>
 
@@ -12,34 +16,50 @@
 
 
 
-<form action="#"   th:action="@{/saveStudent}"
-                   th:object="${student}" method="POST">
+<form action="#" th:action="@{/saveStudent}"
+                 th:object="${student}" method="POST">
+    <div class="con">
+        <header class="head-form">
+            <h2>Sign Up</h2>
+            <p>sign up here using your name, age and password</p>
+        </header>
     <table>
-        <tr>
-            <td><input type="hidden" th:field="*{id}" /></td>
-        </tr>
-        <tr>
-            <td align="right">First name :</td>
-            <td><input type="text" th:field="*{firstName}" placeholder="First name"></td>
-        </tr>
-        <tr>
-            <td align="right">Last name :</td>
-            <td><input type="text" th:field="*{lastName}" placeholder="Last name"></td>
-        </tr>
-        <tr>
-            <td align="right">Age :</td>
-            <td><input type="text" th:field="*{age}" placeholder="Age"></td>
-        </tr>
-        <tr>
-            <td align="right">Password :</td>
-            <td><input type="text" th:field="*{password}" placeholder="Password"></td>
-        </tr>
+        <br>
+            <input type="hidden" th:field="*{id}" />
+        </br>
+        <br>
+        <div class="cont">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <input class="form-input" id="txt-input" type="text" th:field="*{firstName}" placeholder="First name">
+        </div>
+        </br>
+        <br>
+        <div class="cont">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <input class="form-input" id="txt-input2" type="text" th:field="*{lastName}" placeholder="Last name">
+        </div>
+        </br>
+        <br>
+        <div class="cont">
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <input  class="form-input" id="txt-input3" type="text" th:field="*{age}" placeholder="Age">
+        </div>
+        </br>
+        <br>
+        <div class="cont">
+            <i class="fa fa-key" aria-hidden="true"></i>
+            <input  class="form-input" id="txt-input4" type="text" th:field="*{password}" placeholder="Password">
+        </div>
+        </br>
 
         <tr>
             <p></p>
-            <td align="right"><input type="submit" value="Save" /> </td>
+            <div class="press-button">
+            <input class="save-button sign-up" type="submit" value="Save" />
+           </div>
         </tr>
     </table>
+</div>
 </form>
 
 
