@@ -7,22 +7,37 @@
 
 <head>
     <title>Access Denied</title>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+    <link th:href="@{/denied.css}" type="text/css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/0a82a71546.js"></script>
 </head>
-<body>
-        <h2>Access Denied - You are not authorized to access this resource.
+<body class="picture">
+
+        <h2>Access Denied </h2>
+        <div class="cont">
+        <h3>You are not authorized to access this resource</h3>
             <br><br>
-            Only users with role ADMIN have administrator access.
-        </h2>
-         <hr>
-        <p>
+         <h4>Only users with</h4>
+            <h5><span class="coltext">role</span> ADMIN <span class="colortext">have</span> administrator access</h5>
+        </div>
+
+<div class="line_top"></div>
+<div class="form">
+<table>
+         <br>
+        <div class="user">
             User: <span sec:authentication="principal.username"></span>
-            <br><br>
-
+        </div>
+         </br>
+         <br>
+        <div class="role">
             Role: <span sec:authentication="principal.authorities"></span>
-
-        </p>
-
-        <hr>
+        </div>
+        </br>
+         <br>
         <a th:href="@{/}">Back to Home Page</a>
+         </br>
+</table>
+</div>
 </body>
 </html>

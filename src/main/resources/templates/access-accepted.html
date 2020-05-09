@@ -6,26 +6,52 @@
 
 <head>
     <title>Access Accepted</title>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+    <link th:href="@{/accepted.css}" type="text/css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/0a82a71546.js"></script>
 </head>
-<body>
+<body class="picture">
 
 <div sec:authorize="hasRole('ADMIN')">
-<h2>Access Accepted - Congratulations you have logged with Administrator access.</h2>
+<h2>Access Accepted</h2>
+    <div class="cont">
+        <h3>with</h3>
+        <h4>Administrator access</h4>
+    </div>
 </div>
 <div sec:authorize="hasRole('STUDENT')">
-    <h2>You have logged with Student access.</h2>
+    <h2>You have logged</h2>
+    <div class="cont">
+    <h3>with</h3>
+    <h4>Student access</h4>
+  </div>
 </div>
 
-<hr>
+<div class="line_top"></div>
 <p>
+<div class="form">
+<table>
+    <div class="thumbnail">
+    <img th:src="@{/images/hat.svg}">
+    </div>
+
+    <br>
+        <div class="user">
     User: <span sec:authentication="principal.username"></span>
-    <br><br>
+    </div>
+    </br>
 
+    <br>
+        <div class="role">
     Role: <span sec:authentication="principal.authorities"></span>
-
+        </div>
+    </br>
+        <br>
+        <a th:href="@{/}">Back to Home Page</a>
+        </br>
+</table>
+</div>
 </p>
 
-<hr>
-<a th:href="@{/}">Back to Home Page</a>
 </body>
 </html>
